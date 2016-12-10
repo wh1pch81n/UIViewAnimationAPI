@@ -12,6 +12,7 @@
 		7F9A1BFD1DFC61B300554922 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F9A1BFB1DFC61B300554922 /* Main.storyboard */; };
 		7F9A1BFF1DFC61B300554922 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F9A1BFE1DFC61B300554922 /* Assets.xcassets */; };
 		7F9A1C021DFC61B300554922 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F9A1C001DFC61B300554922 /* LaunchScreen.storyboard */; };
+		7F9A1C0A1DFC648900554922 /* UIView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A1C091DFC648900554922 /* UIView_Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		7F9A1BFE1DFC61B300554922 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F9A1C011DFC61B300554922 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F9A1C031DFC61B300554922 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F9A1C091DFC648900554922 /* UIView_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView_Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				7F9A1BF71DFC61B300554922 /* AppDelegate.swift */,
 				7F9A1BF91DFC61B300554922 /* ViewController.swift */,
+				7F9A1C091DFC648900554922 /* UIView_Extension.swift */,
 				7F9A1BFB1DFC61B300554922 /* Main.storyboard */,
 				7F9A1BFE1DFC61B300554922 /* Assets.xcassets */,
 				7F9A1C001DFC61B300554922 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			files = (
 				7F9A1BFA1DFC61B300554922 /* ViewController.swift in Sources */,
 				7F9A1BF81DFC61B300554922 /* AppDelegate.swift in Sources */,
+				7F9A1C0A1DFC648900554922 /* UIView_Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
