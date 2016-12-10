@@ -11,7 +11,7 @@ import UIKit
 // MARK: - UIKit Extension
 extension UIKit.UIView {
 
-	public class Animator {
+	public struct Animator {
 		fileprivate var animatorBlock: ((@escaping () -> (), @escaping (Bool) -> ()) -> ())
 		fileprivate var animations: () -> () = { _ in }
 		
@@ -19,9 +19,10 @@ extension UIKit.UIView {
 			self.animatorBlock = animatorBlock
 		}
 		
-		public func animations(_ animations: @escaping () -> ()) -> Self {
-			self.animations = animations
-			return self
+		public func animations(_ animations: @escaping () -> ()) -> Animator {
+			var a = self
+			a.animations = animations
+			return a
 		}
 		
 		public func completion(_ completion: @escaping (Bool) -> ()) {

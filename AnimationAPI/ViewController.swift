@@ -43,25 +43,24 @@ class ViewController: UIViewController {
 			.animations {
 				self.view.backgroundColor = .red
 			}
-			.completion { _ in
-				self.view.backgroundColor = .white
-				UIView.animate(withDuration: 5, delay: 1, options: UIViewAnimationOptions.curveEaseInOut)
-					.animations {
-						self.view.backgroundColor = .green
-					}.completion { _ in
-						self.view.backgroundColor = .white
-						
-						let v = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-						v.backgroundColor = .purple
-						self.view.addSubview(v)
-						UIView.animate(withDuration: 5, delay: 1, usingSpringWithDamping: 0.1, initialSpringVelocity: 40, options: UIViewAnimationOptions.curveEaseInOut)
-							.animations {
-								v.frame.origin.x = 150
-							}.completion({ _ in
-								v.frame.origin.x = 0
-							})
-				}
-		}
+			.completion { _ in }
+		UIView.animate(withDuration: 5, delay: 1, options: UIViewAnimationOptions.curveEaseInOut)
+			.animations {
+				self.view.layer.borderColor = UIColor.green.cgColor
+				self.view.layer.borderWidth = 20
+			}.completion { _ in }
+
+				
+		let v2 = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+		v2.backgroundColor = .purple
+		self.view.addSubview(v2)
+		UIView.animate(withDuration: 5, delay: 1, usingSpringWithDamping: 0.1, initialSpringVelocity: 40, options: UIViewAnimationOptions.curveEaseInOut)
+			.animations {
+				v2.frame.origin.x = 150
+			}.completion({ _ in
+				v2.frame.origin.x = 0
+			})
+		
 		
 	}
 }
