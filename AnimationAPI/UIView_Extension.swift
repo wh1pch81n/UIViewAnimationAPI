@@ -28,10 +28,6 @@ public protocol AnimatorCompositionWithSpringVelocity_Properties: AnimatorCompos
 	
 }
 
-public protocol AnimatorCompositionWithKeyframes_Properties: AnimatorComposition_Properties, AnimatorCompositionWithDelay_Properties {
-	var _keyFrameOptions: UIViewKeyframeAnimationOptions { get set }
-}
-
 // MARK: - Animator methods
 
 public protocol AnimatorComposition {
@@ -44,7 +40,6 @@ public protocol AnimatorComposition {
 	func delay(_ delay: TimeInterval) -> AnimatorCompositionWithOptions
 	func options(_ options: UIViewAnimationOptions) -> AnimatorCompositionWithOptions
 	func usingSpringWithDamping(_ springWithDamping: CGFloat, initialSpringVelocity: CGFloat) -> AnimatorCompositionWithSpringVelocity
-	func options(_ options: UIViewKeyframeAnimationOptions) -> AnimatorCompositionWithKeyframes
 }
 
 public protocol AnimatorCompositionWithDelay {
@@ -57,10 +52,6 @@ public protocol AnimatorCompositionWithOptions: AnimatorComposition, AnimatorCom
 
 public protocol AnimatorCompositionWithSpringVelocity: AnimatorCompositionWithOptions {
 	func usingSpringWithDamping(_ springWithDamping: CGFloat, initialSpringVelocity: CGFloat) -> Self
-}
-
-public protocol AnimatorCompositionWithKeyframes: AnimatorComposition, AnimatorCompositionWithDelay {
-	func options(_ options: UIViewKeyframeAnimationOptions) -> Self
 }
 
 // MARK: - Protocol Extensions
@@ -94,23 +85,12 @@ extension AnimatorComposition where Self: AnimatorComposition_Properties {
 			.usingSpringWithDamping(springWithDamping
 				, initialSpringVelocity: initialSpringVelocity)
 	}
-	func options(_ options: UIViewKeyframeAnimationOptions) -> AnimatorCompositionWithKeyframes {
-		return (self as! AnimatorCompositionWithKeyframes).options(options)
-	}
 }
 
 extension AnimatorCompositionWithDelay where Self: AnimatorCompositionWithDelay_Properties {
 	public func delay(_ delay: TimeInterval) -> Self {
 		var a = self
 		a._delay = delay
-		return a
-	}
-}
-
-extension AnimatorCompositionWithKeyframes where Self: AnimatorCompositionWithKeyframes_Properties {
-	public func options(_ options: UIViewKeyframeAnimationOptions) -> Self {
-		var a = self
-		a._keyFrameOptions = options
 		return a
 	}
 }
@@ -161,7 +141,6 @@ extension UIKit.UIView {
 		AnimatorComposition, AnimatorComposition_Properties
 		, AnimatorCompositionWithOptions, AnimatorCompositionWithOptions_Properties
 		, AnimatorCompositionWithSpringVelocity, AnimatorCompositionWithSpringVelocity_Properties
-		, AnimatorCompositionWithKeyframes, AnimatorCompositionWithKeyframes_Properties
 	{
 
 		var _duration: TimeInterval = 0
@@ -172,8 +151,6 @@ extension UIKit.UIView {
 		
 		var _springDamping: CGFloat = 1
 		var _initialSpringVelocity: CGFloat = 0
-		
-		var _keyFrameOptions: UIViewKeyframeAnimationOptions = .calculationModeLinear
 	}
 
 	public static func animate(withDuration duration: TimeInterval) -> AnimatorComposition {
